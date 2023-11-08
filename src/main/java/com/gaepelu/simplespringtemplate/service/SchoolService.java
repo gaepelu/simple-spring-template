@@ -7,4 +7,6 @@ import java.util.List;
 public interface SchoolService {
 
     List<School> findAll();
+
+    School findById(Long id);
 }

@@ -1,4 +1,6 @@
 spring:
+  mvc:
+    log-resolved-exception: false
   datasource:
     url: jdbc:h2:mem:test_db;MODE=PostgreSQL
     driver-class-name: org.h2.Driver
