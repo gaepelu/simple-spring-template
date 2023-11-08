@@ -1,6 +1,5 @@
 package com.gaepelu.simplespringtemplate.controller;
 
-import com.gaepelu.simplespringtemplate.exception.InternalServerErrorException;
 import com.gaepelu.simplespringtemplate.model.School;
 import com.gaepelu.simplespringtemplate.service.SchoolService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,6 @@ public class SchoolController {
 
     @GetMapping("/schools")
     public List<School> schools() {
-        if (1 == 1) throw new InternalServerErrorException("ciao", new RuntimeException("asd"));
         return schoolService.findAll();
     }
 

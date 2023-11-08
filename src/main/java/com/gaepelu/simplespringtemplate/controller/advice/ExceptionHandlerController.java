@@ -1,4 +1,4 @@
-package com.gaepelu.simplespringtemplate.controller;
+package com.gaepelu.simplespringtemplate.controller.advice;
 
 
 import com.gaepelu.simplespringtemplate.exception.BaseException;

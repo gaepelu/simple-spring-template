@@ -1,15 +1,13 @@
 package com.gaepelu.simplespringtemplate.exception;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import org.springframework.boot.logging.LogLevel;
 import org.springframework.http.HttpStatus;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Optional;
 import java.util.logging.Level;
 
-@JsonIncludeProperties({"status","message","timestamp"})
+@JsonIncludeProperties({"status", "message", "timestamp"})
 public class BaseException extends RuntimeException {
 
     private final Date timestamp;
@@ -26,7 +24,7 @@ public class BaseException extends RuntimeException {
     }
 
     public BaseException(String message, Throwable throwable, HttpStatus httpStatus, Level logLevel) {
-        super(message,throwable);
+        super(message, throwable);
         this.httpStatus = Optional.ofNullable(httpStatus).orElse(HttpStatus.INTERNAL_SERVER_ERROR);
         this.logLevel = logLevel;
         this.timestamp = new Date();
@@ -40,7 +38,7 @@ public class BaseException extends RuntimeException {
         return logLevel;
     }
 
-    public Date getTimestamp(){
+    public Date getTimestamp() {
         return timestamp;
     }
 }
