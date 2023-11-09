@@ -7,6 +7,7 @@ import com.gaepelu.simplespringtemplate.model.dto.SchoolDto;
 import com.gaepelu.simplespringtemplate.repository.SchoolRepository;
 import com.gaepelu.simplespringtemplate.service.SchoolService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -44,9 +45,10 @@ public class SchoolServiceImpl implements SchoolService {
         return schoolRepository.save(school);
     }
 
+    @Transactional
     @Override
     public School updateSchool(Long id, SchoolDto schoolDto) {
-        School school = findById(id);
+        School school = schoolRepository.findById(id).orElseThrow(schoolNotFound(id));
         school.setName(schoolDto.getName());
         school.setDescription(schoolDto.getDescription());
         return schoolRepository.save(school);

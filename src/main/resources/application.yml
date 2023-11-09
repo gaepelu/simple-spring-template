@@ -6,6 +6,11 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     open-in-view: false
+    hibernate:
+      ddl-auto: none
+      format_sql: true
+    show-sql: true
+
   security:
     user:
       name: admin
