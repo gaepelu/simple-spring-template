@@ -1,7 +1,9 @@
 package com.gaepelu.simplespringtemplate.service.impl;
 
 import com.gaepelu.simplespringtemplate.exception.NotFoundException;
+import com.gaepelu.simplespringtemplate.mapper.SchoolMapper;
 import com.gaepelu.simplespringtemplate.model.School;
+import com.gaepelu.simplespringtemplate.model.dto.SchoolDto;
 import com.gaepelu.simplespringtemplate.repository.SchoolRepository;
 import com.gaepelu.simplespringtemplate.service.SchoolService;
 import org.springframework.stereotype.Service;
@@ -19,8 +21,11 @@ public class SchoolServiceImpl implements SchoolService {
 
     private final SchoolRepository schoolRepository;
 
-    public SchoolServiceImpl(SchoolRepository schoolRepository) {
+    private final SchoolMapper schoolMapper;
+
+    public SchoolServiceImpl(SchoolRepository schoolRepository, SchoolMapper schoolMapper) {
         this.schoolRepository = schoolRepository;
+        this.schoolMapper = schoolMapper;
     }
 
     @Override
@@ -31,5 +36,11 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public School findById(Long id) {
         return schoolRepository.findById(id).orElseThrow(schoolNotFound(id));
+    }
+
+    @Override
+    public School createSchool(SchoolDto schoolDto) {
+        School school = schoolMapper.toEntity(schoolDto);
+        return schoolRepository.save(school);
     }
 }

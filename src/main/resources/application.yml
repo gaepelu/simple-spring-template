@@ -10,6 +10,11 @@ spring:
     user:
       name: admin
       password: admin
+      roles:
+        - ADMIN
+  h2:
+    console:
+      enabled: false
 
 management:
   endpoint:
