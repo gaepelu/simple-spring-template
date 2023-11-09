@@ -3,8 +3,6 @@ package com.gaepelu.simplespringtemplate.controller;
 import com.gaepelu.simplespringtemplate.model.School;
 import com.gaepelu.simplespringtemplate.model.dto.SchoolDto;
 import com.gaepelu.simplespringtemplate.service.SchoolService;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
