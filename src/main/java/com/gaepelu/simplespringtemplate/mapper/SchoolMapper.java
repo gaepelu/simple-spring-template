@@ -9,4 +9,5 @@ import org.mapstruct.ReportingPolicy;
 public interface SchoolMapper {
 
     School toEntity(SchoolDto schoolDto);
+
 }

@@ -31,4 +31,10 @@ public class SchoolController {
     public School createSchool(@Validated @RequestBody SchoolDto schoolDto) {
         return schoolService.createSchool(schoolDto);
     }
+
+    @PutMapping("/schools/{id}")
+    public School updateSchool(@PathVariable("id") Long id, @Validated @RequestBody SchoolDto schoolDto) {
+        return schoolService.updateSchool(id,schoolDto);
+    }
+
 }

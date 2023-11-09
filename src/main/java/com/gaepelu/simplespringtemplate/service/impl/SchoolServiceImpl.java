@@ -43,4 +43,12 @@ public class SchoolServiceImpl implements SchoolService {
         School school = schoolMapper.toEntity(schoolDto);
         return schoolRepository.save(school);
     }
+
+    @Override
+    public School updateSchool(Long id, SchoolDto schoolDto) {
+        School school = findById(id);
+        school.setName(schoolDto.getName());
+        school.setDescription(schoolDto.getDescription());
+        return schoolRepository.save(school);
+    }
 }

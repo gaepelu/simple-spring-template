@@ -12,4 +12,6 @@ public interface SchoolService {
     School findById(Long id);
 
     School createSchool(SchoolDto schoolDto);
+
+    School updateSchool(Long id, SchoolDto schoolDto);
 }
